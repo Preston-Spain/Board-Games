@@ -11,11 +11,7 @@ fn roll() -> i32 {
 }
 
 struct Character {
-    Title: String,
-    position: Position
-}
-
-struct Position {
+    Name: String,
     x: i32,
     y: i32
 }

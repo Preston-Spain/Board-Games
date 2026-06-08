@@ -4,29 +4,30 @@ use std::collections::HashMap;
     // let mut Board = HashMap::new();
 // Structs
     struct GamePeice {
-    char: Character,
-    money: i32,
-    peiceType: Peice
+        char: Character,
+        money: i32 = 1500, // Starting amount
+        peiceType: Peice,
+        inventory: i32 = []
     }
 
     struct Tile {
-    id: i32,
-    title: String,
-    cost: i32,
-    description: String,
-    command: Command,
-    commandWord: String,
-    commandNum: i32,
-    ownership: PeiceType,
-    level: i32 // 0-5: 0==none, 1-4==houses, 5== Hotel
+        id: i32,
+        title: String,
+        cost: i32,
+        description: String,
+        command: Command,
+        commandWord: String,
+        commandNum: i32,
+        ownership: PeiceType,
+        level: i32 // 0-5: 0==none, 1-4==houses, 5== Hotel
     }
 
     struct Card {
-    Title: String,
-    command: Command,
-    commandWord: String,
-    commandNum: i32,
-    Def: String
+        Title: String,
+        command: Command,
+        commandWord: String,
+        commandNum: i32,
+        Def: String
     }
 
 // Enum
@@ -38,12 +39,14 @@ use std::collections::HashMap;
     }
 
     enum Command {
-        None,
+        Auction,
+        Buy,
         // Jail, // just move to square 41 (40)
         Move,
         // MoveNoGO, // Move to a position without passing go
         MoneyManipulate,
-        Morgage
+        Morgage,
+        None
     }
 
 // functions
@@ -51,25 +54,15 @@ use std::collections::HashMap;
 
     }
 
-    fn command(character: &mut GamePeice, command: &Command, word: String, num: i32) {
+    fn command(character: &mut GamePeice, command: &Command, tile: Tile, num: i32) {
         match Command {
-        Command::None => break,
-        Command::Move => {
-            if (word == "Jail") {
-                ;
-            } else if (work == "NoGo") {
-                //
-            } else { // 1 - 40 (0 - 39)
-
-            }
-        },
-        Command::MoneyManipulate => {
-            
-        },
-        Command::Morgage => println!{
-            
-        },
-    }
+            Command::Auction => {},
+            Command::Buy => {},
+            Command::Move => {moveChar(character,MoneyManipulate,tile)},
+            Command::MoneyManipulate => {},
+            Command::Morgage => {},
+            Command::None => {},
+        }
     }
 
     fn gameCheck() -> bool {
@@ -92,6 +85,27 @@ use std::collections::HashMap;
             
         }
     }
+
+    fn moveChar(character: &mut GamePeice, tile: Tile, num: i32) {
+        if (character::char::x == 41) { // jail logic
+
+        } else {
+            if (tile::commandWord == "Jail") {
+                ;
+            } else if (tile::commandWord == "NoGo") {
+                //
+            } else { // 1 - 40 (0 - 39)
+                newPos = character::char::Position::X + num;
+                if (newPos > 40) {
+                    newPos = num - 41;
+                    command(character,MoneyManipulate,tile,200);
+                }
+                character::char::x = newPos;
+            }
+        }
+    }
+
+    
 
 fn Main() {
     // 
