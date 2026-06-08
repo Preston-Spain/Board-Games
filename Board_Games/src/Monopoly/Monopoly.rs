@@ -7,7 +7,8 @@ use std::collections::HashMap;
         char: Character,
         money: i32 = 1500, // Starting amount
         peiceType: Peice,
-        inventory: i32 = []
+        inventory: i32 = [],
+        lastRoll: i32 = []
     }
 
     struct Tile {
@@ -46,11 +47,16 @@ use std::collections::HashMap;
         // MoveNoGO, // Move to a position without passing go
         MoneyManipulate,
         Morgage,
-        None
+        None,
+        Roll
     }
 
 // functions
     fn innit() {
+
+    }
+
+    fn prompt(def :String, str :String) -> bool { // Will need to be replaced
 
     }
 
@@ -62,11 +68,19 @@ use std::collections::HashMap;
             Command::MoneyManipulate => {},
             Command::Morgage => {},
             Command::None => {},
+            Command::Roll => {}
         }
     }
 
     fn gameCheck() -> bool {
         return ;
+    }
+
+    fn rollDie() -> [i32; 2] {
+        guy = [1,2];
+
+
+        return guy
     }
 
     fn movePeice(spaces: i32) {
@@ -88,7 +102,11 @@ use std::collections::HashMap;
 
     fn moveChar(character: &mut GamePeice, tile: Tile, num: i32) {
         if (character::char::x == 41) { // jail logic
-
+            if (true) {
+                //
+            } else {
+                //
+            }
         } else {
             if (tile::commandWord == "Jail") {
                 ;
