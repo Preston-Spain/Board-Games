@@ -1,7 +1,10 @@
 [package]
 name = "Board_Games"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
-rand = "0.999.0"
+rand = "0.8.5"
+ggez = "0.9.3"
+winit = "0.29.15"
+wgpu = "0.20.0"
